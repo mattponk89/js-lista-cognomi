@@ -14,15 +14,19 @@ var positionUserSur = 0;
 // Inserisco il cognome utente dentro il mio array quando viene premuto il tasto
 
 btnNewSurnameEl.addEventListener('click', function() {
-
+  positionUserSurEl.innerHTML = '';
+  unorderedListEl.innerHTML = '';
+  orderedListEl.innerHTML = '';
   // recupero cognome utente
   var userSurEl = document.getElementById('userSur');
   userSur = userSurEl.value;
+
   // Scrivo la lista dei cognomi prima di ordinarla nel DOM
   for(var i = 0; i < surnameList.length; i++){
     unorderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
   }
 
+//inserisco la variabile con input dell'utente all'interno del array
   surnameList.push(userSur);
 
 
