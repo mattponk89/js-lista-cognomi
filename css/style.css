@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.input-box,
+.output-box{
+  padding: 30px;
+}
+.output ul,
+.output ol{
+  text-align: left;
+}

@@ -20,6 +20,7 @@ btnNewSurnameEl.addEventListener('click', function() {
   orderedListEl.innerHTML = '';
   // recupero cognome utente
   userSur = userSurEl.value;
+  userSur = userSur.charAt(0).toUpperCase() + userSur.slice(1);
   if (userSur != ''){
     if (!surnameList.includes(userSur)){
       // Scrivo la lista dei cognomi prima di ordinarla nel DOM
