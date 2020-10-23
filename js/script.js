@@ -20,45 +20,49 @@ btnNewSurnameEl.addEventListener('click', function() {
   orderedListEl.innerHTML = '';
   // recupero cognome utente
   userSur = userSurEl.value;
-
-  if (!surnameList.includes(userSur)){
-    // Scrivo la lista dei cognomi prima di ordinarla nel DOM
-    for(var i = 0; i < surnameList.length; i++){
-      unorderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
-    }
-
-    //inserisco la variabile con input dell'utente all'interno del array
-    surnameList.push(userSur);
-
-
-    // riordina array in ordine alfabetico
-    surnameList.sort();
-
-
-    for(var i = 0; i < surnameList.length; i++){
-      orderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
-      if (userSur == surnameList[i]) {
-        positionUserSur = i + 1;
+  if (userSur != ''){
+    if (!surnameList.includes(userSur)){
+      // Scrivo la lista dei cognomi prima di ordinarla nel DOM
+      for(var i = 0; i < surnameList.length; i++){
+        unorderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
       }
-    }
-    positionUserSurEl.innerHTML += 'La posizione del cognome inserito è: ' + positionUserSur;
 
-  } else {
-
-    for(var i = 0; i < surnameList.length; i++){
-      unorderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
-    }
-
-    surnameList.sort();
+      //inserisco la variabile con input dell'utente all'interno del array
+      surnameList.push(userSur);
 
 
-    for(var i = 0; i < surnameList.length; i++){
-      orderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
-      if (userSur == surnameList[i]) {
-        positionUserSur = i + 1;
+      // riordina array in ordine alfabetico
+      surnameList.sort();
+
+
+      for(var i = 0; i < surnameList.length; i++){
+        orderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
+        if (userSur == surnameList[i]) {
+          positionUserSur = i + 1;
+        }
       }
+      positionUserSurEl.innerHTML += 'La posizione del cognome inserito è: ' + positionUserSur;
+
+    } else {
+
+      for(var i = 0; i < surnameList.length; i++){
+        unorderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
+      }
+
+      surnameList.sort();
+
+
+      for(var i = 0; i < surnameList.length; i++){
+        orderedListEl.innerHTML += '<li>'+ surnameList[i] + '</li>';
+        if (userSur == surnameList[i]) {
+          positionUserSur = i + 1;
+        }
+      }
+      positionUserSurEl.innerHTML += 'Il cognome era già presente in questo elenco!';
     }
-    positionUserSurEl.innerHTML += 'Il cognome era già presente in questo elenco!';
+
+  }else {
+    alert('Il dato inserito non è valido! Correggere e riprovare.')
   }
 
 
